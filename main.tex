@@ -2,27 +2,24 @@
 \usepackage[russian]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{listings}
 
+\theoremstyle{plain}
 \newtheorem{theorem}{Теорема}
 \newtheorem{lemma}{Лемма}
 \newtheorem{statement}{Утверждение}
+\theoremstyle{definition}
 \newtheorem{definition}{Опр.}
-
-\newenvironment{proof}[1][Доказательство]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
-
-\newcommand{\qed}{\nobreak \ifvmode \relax \else
-      \ifdim\lastskip<1.5em \hskip-\lastskip
-      \hskip1.5em plus0em minus0.5em \fi \nobreak
-      \vrule height0.75em width0.5em depth0.25em\fi}
 
 \begin{document}
 
 \input{parts/1.tex}
 \input{parts/2.tex}
 \input{parts/4.tex}
+\input{parts/5.tex}
 \input{parts/9.tex}
 
 \end{document}
