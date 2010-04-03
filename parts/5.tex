@@ -14,7 +14,7 @@ a^{p - 2k} + b^{p - 2k} = (ab)^{-(2k - 1)}(a^{p-1}b^{2k - 1} + b^{p-1}a^{2k - 1}
 здесь и далее под равенством понимается сравненимо по модулю $p$.
 \begin{multline*}
 FIGNA = \sum_{k=1}^q{C_p^k (ab)^k (a^{p-2k} + b^{p-2k})} = \sum_{k=1}^q{C_p^k (ab)^k (ab)^{-(2k-1)}(a^{2k-1} + b^{2k-1})} = \\
-= \sum_{k=1}^q{C_p^k (ab)^{-(k-1)}(a^{2k-1} + b^{2k-1})} = \sum_{k=1}^q{c_p^k (ab)^{-(k-1)} f(2k-1)},
+= \sum_{k=1}^q{C_p^k (ab)^{-(k-1)}(a^{2k-1} + b^{2k-1})} = \sum_{k=1}^q{C_p^k (ab)^{-(k-1)} f(2k-1)},
 \end{multline*}
 где $f(k) = a^{k} + b^{k}$.
 
@@ -24,7 +24,7 @@ $$ f(6k+1)  = (a+b)(ab)^{3k}    $$
 $$ f(6k+2)  = -(ab)^{3k+1}      $$
 $$ f(6k+3)  = -2(a+b)(ab)^{3k+1}$$
 $$ f(6k+4)  = -(ab)^{3k+2}      $$
-$$ f(6k+5)  = (a+b)^{3k+2}      $$
+$$ f(6k+5)  = (a+b)(ab)^{3k+2}  $$
 }
 \begin{proof}
 
@@ -32,16 +32,37 @@ $$ f(6k+5)  = (a+b)^{3k+2}      $$
 Проверяется подстановкой.
 
 {\bfseries Переход. }
+\begin{multline*}
+    f(k) = a^k + b^k = (a+b)(a^{k-1} + b^{k-1}) - (ab^{k-1} + ba^{k-1}) = (a+b)f(k-1) - (ab)f(k-2).
+\end{multline*}
 \begin{itemize}
-    \item $ f(6k) = a^{6k} + b^{6k} = (a^{3k} + b^{3k})^2 - 2(a^{3k}b^{3k}) = (f(3k))^2 - 2(ab)^{3k}. $ Если $k = 2l + 1$, то 
+    \item 
         \begin{multline*}
-            (f(3k))^2 = (f(6l+3))^2 = (-2(a+b)(ab)^{3l+1})^2 = 4(a+b)^2(ab)^{6l+2} = \\
-            = 4(ab)(ab)^{6l+2} = 4(ab)^{3k},
+            f(6k) = (a+b)(a+b)(ab)^{3(k-1)+2} - ab(-ab)^{3(k-1)+2} = \\
+            = 2(ab)(ab)^{3k-1} = 2(ab)^{3k}.
         \end{multline*}
-        иначе $k = 2l$
-            $$(f(3k))^2 = (f(6l))^2 = (2(ab)^{3l})^2 = 4(ab)^{3k}.$$ 
-        Таким образом $f(6k) = 4(ab)^{3k} - 2(ab)^{3k} = 2(ab)^{3k}$. 
-    \item $ f(6k+1) = a^{6k+1} + b^{6k+1} $
+    \item $f(6k+1) = (a+b) * 2(ab)^{3k} - ab(a+b)ab^{3(k-1)+2} = (a+b)(ab)^{3k}$.
+    \item 
+        \begin{multline*}
+            f(6k+2) = (a+b)(a+b)(ab)^{3k} - (ab)*2(ab)^{3k} = \\
+            = (ab)(ab)^{3k} - 2(ab)^{3k+1} = -(ab)^{3k+1}.
+        \end{multline*}
+    \item $f(6k+3) = (a+b)[-(ab)^{3k+1}] - (ab)(a+b)(ab)^{3k} = -2(a+b)(ab)^{3k+1}$.
+    \item 
+        \begin{multline*}
+            f(6k+4) = (a+b)[-2(a+b)(ab)^{3k+1}] - (ab)[-(ab)^{3k+1}] = \\
+            = -2(a+b)^2(ab)^{3k+1} + (ab)^{3k+2} = -(ab)^{3k+2}.
+        \end{multline*}
+    \item 
+        \begin{multline*}
+            f(6k+5) = (a+b)[-(ab)^{3k+2}] - (ab)[-2(a+b)(ab)^{3k+1}] = \\
+            = (a+b)[-(ab)^{3k+2} + 2(ab)^{3k+2}] = (a+b)(ab)^{3k+2}.
+        \end{multline*}        
 \end{itemize}
-
 \end{proof}
+
+\begin{multline*}
+    FIGNA = \sum_{k=1}^q{C_p^k (ab)^{-(k-1)} f(2k-1)} = \sum_{k=1}^q{C_p^k (ab)^{-(k-1)} (a+b)(ab)^{k-1}s(k)} = \\
+    = (a+b) \sum_{k=1}^q{C_p^k}s(k),
+\end{multline*}
+где $s(k) = -2$, если $k = 3l+2$, иначе $s(k) = 1$.
