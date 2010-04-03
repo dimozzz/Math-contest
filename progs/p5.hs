@@ -5,10 +5,10 @@ c _ 0   = 1
 c n k   = (c (n - 1) (k - 1)) + (c (n - 1) k) 
 
 sumc     :: Integer -> Integer
-sumc n   = foldl (+) 0 [(c n x) | x <- [2..n-1], x `mod` 3 == 0]
+sumc n   = foldl (+) 0 [(c n x) | x <- [2..(n-1) `div` 2], x `mod` 3 == 2]
 
-res    :: Integer -> Integer
-res n    = power n - sumc n - 2
+res     :: Integer -> Integer
+res n   = power (n - 1) - (3 * sumc n) - 1
 
 power   :: Integer -> Integer
-power n  = product(replicate (fromInteger n) 2) 
+power n = product(replicate (fromInteger n) 2) 
